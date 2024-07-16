@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoatPlacesRedo.Server", "Go
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "goatplacesredo.client", "goatplacesredo.client\goatplacesredo.client.esproj", "{6160BB30-94A5-4F48-BD88-CA2EDBA211A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoatPlacesRedo.UnitTests", "GoatPlacesRedo.UnitTests\GoatPlacesRedo.UnitTests.csproj", "{4CCD0735-A51A-43F7-9081-965FB85C521A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{6160BB30-94A5-4F48-BD88-CA2EDBA211A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6160BB30-94A5-4F48-BD88-CA2EDBA211A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6160BB30-94A5-4F48-BD88-CA2EDBA211A2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4CCD0735-A51A-43F7-9081-965FB85C521A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCD0735-A51A-43F7-9081-965FB85C521A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCD0735-A51A-43F7-9081-965FB85C521A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCD0735-A51A-43F7-9081-965FB85C521A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
