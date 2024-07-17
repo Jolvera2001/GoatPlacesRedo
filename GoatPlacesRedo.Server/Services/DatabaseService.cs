@@ -7,4 +7,7 @@ public class DatabaseService(DbContextOptions<DatabaseService> options) : DbCont
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Post> Posts { get; set; }
+    public DbSet<Event> Events { get; set; }
+    public DbSet<EventPost> EventPosts { get; set; }
+    public DbSet<Participates> Participating { get; set; }
 }
