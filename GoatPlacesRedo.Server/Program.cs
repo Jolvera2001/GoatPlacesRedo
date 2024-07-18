@@ -1,10 +1,10 @@
-using GoatPlacesRedo.Server.Domain.Services;
+using GoatPlacesRedo.Server.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<DatabaseService>(options =>
+builder.Services.AddDbContext<GoatDbContext>(options =>
     options.UseSqlServer(
         Environment.GetEnvironmentVariable("GOATAPP_SECRET"),
         sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
