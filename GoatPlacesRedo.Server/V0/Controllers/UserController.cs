@@ -6,13 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace GoatPlacesRedo.Server.V0.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
-public class UserController(UserServices userServices) : ControllerBase
+[Route("api/v0/[controller]")]
+public class UserController(IUserServices userServices) : ControllerBase
 {
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUser([FromRoute]Guid id)
     {
-        var user = await userServices.GetUser(id);
+        ClientUser? user = await userServices.GetUser(id);
+
+        if (user == null)
+        {
+            return BadRequest();
+        }
+        
         return Ok(user);
     }
 

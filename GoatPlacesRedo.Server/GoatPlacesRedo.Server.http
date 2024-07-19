@@ -4,3 +4,6 @@ GET {{GoatPlacesRedo.Server_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET{{GoatPlacesRedo.Server_HostAddress}}/api/v1/User/34E83A6D-B31F-4318-BC5F-236E774324CA
+Accept: 

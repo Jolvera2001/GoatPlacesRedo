@@ -5,7 +5,7 @@ namespace GoatPlacesRedo.Server.Services;
 
 public interface IUserServices
 {
-    Task<User?> GetUser(Guid id);
+    Task<ClientUser?> GetUser(Guid id);
     Task<User> CreateUser(ClientUser user);
     Task<User> UpdateUser(ClientUser user);
     Task DeleteUser(Guid id);

@@ -15,8 +15,8 @@ builder.Services.AddDbContext<GoatDbContext>(options =>
             errorNumbersToAdd: null)
         ));
 
-builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryService<>));
-builder.Services.AddScoped(typeof(IUserServices), typeof(UserServices));
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserServices, UserServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
