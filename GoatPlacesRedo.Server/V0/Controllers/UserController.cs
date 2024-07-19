@@ -3,7 +3,7 @@ using GoatPlacesRedo.Server.DTOs;
 using GoatPlacesRedo.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GoatPlacesRedo.Server.V1.Controllers;
+namespace GoatPlacesRedo.Server.V0.Controllers;
 
 [ApiController]
 [Route("api/v1/[controller]")]
