@@ -1,4 +1,5 @@
 ﻿using GoatPlacesRedo.Server.Domain.Entities;
+using GoatPlacesRedo.Server.DTOs;
 using GoatPlacesRedo.Server.Repository;
 using Microsoft.Identity.Client;
 
@@ -11,14 +12,34 @@ public class UserServices(RepositoryService<User> repositoryService) : IUserServ
         return await repositoryService.GetByIdAsync(id);
     }
 
-    public async Task<User> CreateUser(User user)
+    public async Task<User> CreateUser(ClientUser user)
     {
-        return await repositoryService.AddAsync(user);
+        User domainUser = new User
+        {
+            Id = new Guid(),
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Username = user.Username,
+            Password = user.Password,
+            Email = user.Email
+        };
+        
+        return await repositoryService.AddAsync(domainUser);
     }
 
-    public async Task<User> UpdateUser(User user)
+    public async Task<User> UpdateUser(ClientUser user)
     {
-        return await repositoryService.UpdateAsync(user);
+        User domainUser = new User
+        {
+            Id = user.Id,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Username = user.Username,
+            Password = user.Password,
+            Email = user.Email
+        };
+        
+        return await repositoryService.UpdateAsync(domainUser);
     }
 
     public async Task DeleteUser(Guid id)

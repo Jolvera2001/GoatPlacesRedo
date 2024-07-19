@@ -1,11 +1,12 @@
 ﻿using GoatPlacesRedo.Server.Domain.Entities;
+using GoatPlacesRedo.Server.DTOs;
 
 namespace GoatPlacesRedo.Server.Services;
 
 public interface IUserServices
 {
     Task<User?> GetUser(Guid id);
-    Task<User> CreateUser(User user);
-    Task<User> UpdateUser(User user);
+    Task<User> CreateUser(ClientUser user);
+    Task<User> UpdateUser(ClientUser user);
     Task DeleteUser(Guid id);
 }

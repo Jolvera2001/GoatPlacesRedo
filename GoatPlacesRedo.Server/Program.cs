@@ -1,3 +1,4 @@
+using GoatPlacesRedo.Server.Domain.Entities;
 using GoatPlacesRedo.Server.Repository;
 using GoatPlacesRedo.Server.Services;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<GoatDbContext>(options =>
         ));
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(RepositoryService<>));
+builder.Services.AddScoped(typeof(IUserServices), typeof(UserServices));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
