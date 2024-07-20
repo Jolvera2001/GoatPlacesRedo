@@ -1,5 +1,7 @@
-﻿using GoatPlacesRedo.Server.Domain.Entities;
+﻿using FluentValidation.Results;
+using GoatPlacesRedo.Server.Domain.Entities;
 using GoatPlacesRedo.Server.DTOs;
+using GoatPlacesRedo.Server.Helpers.Validation;
 using GoatPlacesRedo.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,8 +11,10 @@ namespace GoatPlacesRedo.Server.V0.Controllers;
 [Route("api/v0/[controller]")]
 public class UserController(IUserServices userServices) : ControllerBase
 {
+    private UserValidation _validator = new UserValidation();
+    
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUser([FromRoute]Guid id)
+    public async Task<IActionResult> GetUser([FromBody]Guid id)
     {
         ClientUser? user = await userServices.GetUser(id);
 
@@ -25,27 +29,29 @@ public class UserController(IUserServices userServices) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> InsertUser([FromBody] ClientUser? user)
     {
-        if (user == null)
+        ValidationResult result = await _validator.ValidateAsync(user);
+        
+        if (result.IsValid)
         {
-            return BadRequest();
+            var createdUser = await userServices.CreateUser(user);
+            return Ok(createdUser);
         }
 
-        User createdUser = await userServices.CreateUser(user);
-        
-        return Ok(createdUser);
+        return BadRequest();
     }
 
     [HttpPut]
     public async Task<IActionResult> UpdateUser([FromBody] ClientUser? user)
     {
-        if (user == null)
+        ValidationResult result = await _validator.ValidateAsync(user);
+        
+        if (result.IsValid)
         {
-            return BadRequest();
+            User updatedUser = await userServices.UpdateUser(user);
+            return Ok(updatedUser);
         }
 
-        User updatedUser = await userServices.UpdateUser(user);
-
-        return Ok(updatedUser);
+        return BadRequest();
     }
 
     [HttpDelete("{id}")]

@@ -1,5 +1,7 @@
-﻿using GoatPlacesRedo.Server.Domain.Entities;
+﻿using FluentValidation.Results;
+using GoatPlacesRedo.Server.Domain.Entities;
 using GoatPlacesRedo.Server.DTOs;
+using GoatPlacesRedo.Server.Helpers.Validation;
 using GoatPlacesRedo.Server.Repository;
 
 namespace GoatPlacesRedo.Server.Services;
